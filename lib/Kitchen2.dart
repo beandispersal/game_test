@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:lwk/Garden.dart';
+import 'package:lwk/Storage.dart';
+import 'package:lwk/main.dart';
 class Kitchen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,13 +28,13 @@ class Kitchen2 extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/garden');
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
               },
               child: Text('Plant beans sprout'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/storage');
+                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
               },
               child: Text('Store beans'),
             ),

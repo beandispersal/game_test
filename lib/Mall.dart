@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lwk/Bedroom.dart';
+import 'package:lwk/Restaurants.dart';
+import 'package:lwk/main.dart';
 
 class Mall extends StatelessWidget {
   @override
@@ -45,25 +48,69 @@ class Mall extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/restaurants');
+                Navigator.pushReplacement(context, ScaleRoute(page: Restaurants()));
               },
               child: Text('Restaurants'),
             ),
             RaisedButton(
-              onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+              onPressed: ()async{
+                await showDialog<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Game Over!'),
+                        content: Text('You\'re not allowed to go to work during this crisis. Better work at home.'),
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: (){
+                              Navigator.popUntil(context, ModalRoute.withName('/'));
+                            },
+                            child: Text('Try Again'),
+                          ),
+                          FlatButton(
+                            onPressed: (){
+                              SystemNavigator.pop();
+                            },
+                            child: Text('Exit'),
+                          ),
+                        ],
+                      );
+                    }
+                );
+              },
+              child: Text('Office'),
+            ),
+            RaisedButton(
+              onPressed: ()async{
+                await showDialog<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Game Over!'),
+                        content: Text('You\'re doomed! You can actually do basic exercise at home, right?'),
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: (){
+                              Navigator.popUntil(context, ModalRoute.withName('/'));
+                            },
+                            child: Text('Try Again'),
+                          ),
+                          FlatButton(
+                            onPressed: (){
+                              SystemNavigator.pop();
+                            },
+                            child: Text('Exit'),
+                          ),
+                        ],
+                      );
+                    }
+                );
               },
               child: Text('Gym'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
-              },
-              child: Text('Office'),
-            ),
-            RaisedButton(
-              onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Home'),
             ),

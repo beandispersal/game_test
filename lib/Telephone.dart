@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:lwk/Bedroom.dart';
+import 'package:lwk/Garden.dart';
+import 'package:lwk/Outside.dart';
+import 'package:lwk/main.dart';
 class Telephone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,19 +36,19 @@ class Telephone extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Bedroom'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/garden');
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
               },
               child: Text('Garden'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/outside');
+                Navigator.pushReplacement(context, ScaleRoute(page: Outside()));
               },
               child: Text('Outside'),
             ),

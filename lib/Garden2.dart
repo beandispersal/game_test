@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:lwk/Garden3.dart';
+import 'package:lwk/Storage.dart';
+import 'package:lwk/main.dart';
 class Garden2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,13 +27,13 @@ class Garden2 extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/storage');
+                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
               },
               child: Text('Store it'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/garden3');
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden3()));
               },
               child: Text('Sell it'),
             ),

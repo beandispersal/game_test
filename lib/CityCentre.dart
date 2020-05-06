@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lwk/Community.dart';
+import 'package:lwk/Mall.dart';
+import 'package:lwk/Restaurants.dart';
+import 'package:lwk/main.dart';
 
 class CityCentre extends StatelessWidget {
   @override
@@ -17,13 +21,13 @@ class CityCentre extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/restaurants');
+                Navigator.pushReplacement(context, ScaleRoute(page: Restaurants()));
               },
               child: Text('Restaurants'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/mall');
+                Navigator.pushReplacement(context, ScaleRoute(page: Mall()));
               },
               child: Text('Mall'),
             ),
@@ -85,7 +89,7 @@ class CityCentre extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/community');
+                Navigator.pushReplacement(context, ScaleRoute(page: Community()));
               },
               child: Text('Community'),
             ),

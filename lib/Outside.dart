@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lwk/Bedroom.dart';
+import 'package:lwk/Community.dart';
+import 'package:lwk/Grocery.dart';
+import 'package:lwk/Park.dart';
 import 'package:lwk/main.dart';
 
 class Outside extends StatelessWidget {
@@ -31,25 +35,25 @@ class Outside extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/community');
+                Navigator.pushReplacement(context, ScaleRoute(page: Community()));
               },
               child: Text('Community'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/grocery');
+                Navigator.pushReplacement(context, ScaleRoute(page: Grocery()));
               },
               child: Text('Grocery'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/park');
+                Navigator.pushReplacement(context, ScaleRoute(page: Park()));
               },
               child: Text('Park'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Home'),
             ),

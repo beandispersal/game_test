@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:lwk/Bedroom.dart';
+import 'package:lwk/Garden.dart';
+import 'package:lwk/Kitchen2.dart';
+import 'package:lwk/Kitchen3.dart';
+import 'package:lwk/Outside.dart';
+import 'package:lwk/Storage.dart';
+import 'package:lwk/main.dart';
 class Kitchen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,43 +23,57 @@ class Kitchen extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/kitchen2');
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen2()));
               },
               child: Text('Soak beans'),
             ),
             RaisedButton(
-              onPressed: (){
-                Navigator.popAndPushNamed(context, '/storage');
+              onPressed: ()async{
+                await showDialog<void>(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Good work of food preservation!'),
+                        content: Text('You can keep your food supply longer.'),
+                        actions: <Widget>[FlatButton(
+                          onPressed: (){Navigator.of(context).pop();},
+                          child: Text('Ok'),
+                        )],
+                      );
+                    }
+                );
+                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
               },
               child: Text('Reduce meal portions'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/kitchen3');
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen3()));
               },
               child: Text('Cook'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/storage');
+                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
               },
               child: Text('Storage'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/garden');
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
               },
               child: Text('Garden'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/outside');
+                Navigator.pushReplacement(context, ScaleRoute(page: Outside()));
               },
               child: Text('Outside'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Bedroom'),
             ),

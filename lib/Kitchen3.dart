@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lwk/main.dart';
+import 'package:lwk/Kitchen.dart';
 
 class Kitchen3 extends StatelessWidget {
   @override
@@ -38,7 +40,7 @@ class Kitchen3 extends StatelessWidget {
                       );
                     }
                 );
-                Navigator.popAndPushNamed(context, '/kitchen');
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
               },
               child: Text('Porridge'),
             ),
@@ -56,7 +58,7 @@ class Kitchen3 extends StatelessWidget {
                       );
                     }
                 );
-                Navigator.popAndPushNamed(context, '/kitchen');
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
               },
               child: Text('Rice'),
             ),

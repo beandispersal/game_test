@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lwk/Bedroom.dart';
+import 'package:lwk/CityCentre.dart';
+import 'package:lwk/Grocery.dart';
+import 'package:lwk/Kitchen.dart';
+import 'package:lwk/Mall.dart';
+import 'package:lwk/main.dart';
 
 class Restaurants extends StatelessWidget {
   @override
@@ -16,19 +22,19 @@ class Restaurants extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/mall');
+                Navigator.pushReplacement(context, ScaleRoute(page: Mall()));
               },
               child: Text('Go Shopping'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/grocery');
+                Navigator.pushReplacement(context, ScaleRoute(page: Grocery()));
               },
               child: Text('Buy grocery'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/cityCentre');
+                Navigator.pushReplacement(context, ScaleRoute(page: CityCentre()));
               },
               child: Text('Go to the city'),
             ),
@@ -46,13 +52,13 @@ class Restaurants extends StatelessWidget {
                       );
                     }
                 );
-                Navigator.popAndPushNamed(context, '/kitchen');
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
               },
               child: Text('Take away food'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Home'),
             ),

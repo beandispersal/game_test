@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:lwk/Bedroom.dart';
+import 'package:lwk/Garden.dart';
+import 'package:lwk/Kitchen.dart';
+import 'package:lwk/Outside.dart';
+import 'package:lwk/Telephone.dart';
+import 'package:lwk/main.dart';
 class Storage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,31 +21,31 @@ class Storage extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/garden');
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
               },
               child: Text('Get some seeds to plant'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/kitchen');
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
               },
               child: Text('Get some food to cook'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/telephone');
+                Navigator.pushReplacement(context, ScaleRoute(page: Telephone()));
               },
               child: Text('Telephone'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/outside');
+                Navigator.pushReplacement(context, ScaleRoute(page: Outside()));
               },
               child: Text('Outside'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Bedroom'),
             ),

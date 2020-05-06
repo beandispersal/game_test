@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lwk/CityCentre.dart';
+import 'package:lwk/Grocery.dart';
+import 'package:lwk/Park.dart';
+import 'package:lwk/main.dart';
+import 'package:lwk/Bedroom.dart';
 
 class Community extends StatelessWidget {
   @override
@@ -45,27 +50,27 @@ class Community extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/bedroom');
-              },
-              child: Text('Home'),
-            ),
-            RaisedButton(
-              onPressed: (){
-                Navigator.popAndPushNamed(context, '/grocery');
+                Navigator.pushReplacement(context, ScaleRoute(page: Grocery()));
               },
               child: Text('Grocery'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/park');
+                Navigator.pushReplacement(context, ScaleRoute(page: Park()));
               },
               child: Text('Park'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/cityCentre');
+                Navigator.pushReplacement(context, ScaleRoute(page: CityCentre()));
               },
               child: Text('City Centre'),
+            ),
+            RaisedButton(
+              onPressed: (){
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
+              },
+              child: Text('Home'),
             ),
           ],
         ),

@@ -34,46 +34,26 @@ void main() => runApp(MaterialApp(
       ),
       buttonTheme: ButtonThemeData(buttonColor: Colors.pink[300]),
     ),
-//  onGenerateRoute: (settings) {
-//    switch (settings.name) {
-//      case '/kitchen':
-//        return PageTransition(child: Kitchen(), type: PageTransitionType.scale, duration: Duration(seconds: 5));
-//        break;
-//      case '/storage':
-//        return PageTransition(child: Storage(), type: PageTransitionType.scale);
-//        break;
-//      case '/telephone':
-//        return PageTransition(child: Telephone(), type: PageTransitionType.scale);
-//        break;
-//      case '/garden':
-//        return PageTransition(child: Garden(), type: PageTransitionType.scale);
-//        break;
-//      case '/bedroom':
-//        return PageTransition(child: Bedroom(), type: PageTransitionType.scale);
-//        break;
-//      default:
-//        return null;
-//    }
-//  },
+//  home: Start(),
   initialRoute: '/',
   routes: {
     '/': (context) => Start(),
-    '/kitchen': (context) => Kitchen(),
-    '/kitchen2': (context) => Kitchen2(),
-    '/kitchen3': (context) => Kitchen3(),
-    '/storage': (context) => Storage(),
-    '/telephone': (context) => Telephone(),
-    '/garden': (context) => Garden(),
-    '/garden2': (context) => Garden2(),
-    '/garden3': (context) => Garden3(),
-    '/bedroom': (context) => Bedroom(),
-    '/outside': (context) => Outside(),
-    '/community': (context) => Community(),
-    '/grocery': (context) => Grocery(),
-    '/park': (context) => Park(),
-    '/mall': (context) => Mall(),
-    '/cityCentre': (context) => CityCentre(),
-    '/restaurants': (context) => Restaurants(),
+//    '/kitchen': (context) => Kitchen(),
+//    '/kitchen2': (context) => Kitchen2(),
+//    '/kitchen3': (context) => Kitchen3(),
+//    '/storage': (context) => Storage(),
+//    '/telephone': (context) => Telephone(),
+//    '/garden': (context) => Garden(),
+//    '/garden2': (context) => Garden2(),
+//    '/garden3': (context) => Garden3(),
+//    '/bedroom': (context) => Bedroom(),
+//    '/outside': (context) => Outside(),
+//    '/community': (context) => Community(),
+//    '/grocery': (context) => Grocery(),
+//    '/park': (context) => Park(),
+//    '/mall': (context) => Mall(),
+//    '/cityCentre': (context) => CityCentre(),
+//    '/restaurants': (context) => Restaurants(),
   },
 )
 );
@@ -105,19 +85,19 @@ class _StartState extends State<Start> {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushNamed(context, '/storage');
+                Navigator.push(context, ScaleRoute(page: Storage()));
               },
               child: Text('Storage'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushNamed(context, '/telephone');
+                Navigator.push(context, ScaleRoute(page: Telephone()));
               },
               child: Text('Telephone'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushNamed(context, '/garden');
+                Navigator.push(context, ScaleRoute(page: Garden()));
               },
               child: Text('Garden'),
             ),
@@ -135,7 +115,7 @@ class _StartState extends State<Start> {
                       );
                     }
                 );
-                Navigator.pushNamed(context, '/bedroom');
+                Navigator.push(context, ScaleRoute(page: Bedroom()));
               },
               child: Text('Sleep'),
             ),
@@ -154,18 +134,25 @@ class ScaleRoute extends PageRouteBuilder {
         BuildContext context,
         Animation<double> animation,
         Animation<double> secondaryAnimation,
-        ) => page,
+        ) =>
+    page,
     transitionsBuilder: (
         BuildContext context,
         Animation<double> animation,
         Animation<double> secondaryAnimation,
         Widget child,
         ) =>
-        Align(
-          child: SizeTransition(
-            sizeFactor: animation,
-            child: child,
+        ScaleTransition(
+          scale: Tween<double>(
+            begin: 0.0,
+            end: 1.0,
+          ).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Curves.fastOutSlowIn,
+            ),
           ),
+          child: child,
         ),
   );
 }
