@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:lwk/CityCentre.dart';
 import 'package:lwk/Kitchen.dart';
-import 'package:lwk/Kitchen2.dart';
-import 'package:lwk/Kitchen3.dart';
-import 'package:lwk/Restaurants.dart';
 import 'package:lwk/Storage.dart';
 import 'package:lwk/Telephone.dart';
 import 'package:lwk/Garden.dart';
-import 'package:lwk/Garden2.dart';
-import 'package:lwk/Garden3.dart';
 import 'package:lwk/Bedroom.dart';
-import 'package:lwk/Outside.dart';
-import 'package:lwk/Community.dart';
-import 'package:lwk/Grocery.dart';
-import 'package:lwk/Park.dart';
-import 'package:lwk/Mall.dart';
 
 
 
@@ -38,22 +26,6 @@ void main() => runApp(MaterialApp(
   initialRoute: '/',
   routes: {
     '/': (context) => Start(),
-//    '/kitchen': (context) => Kitchen(),
-//    '/kitchen2': (context) => Kitchen2(),
-//    '/kitchen3': (context) => Kitchen3(),
-//    '/storage': (context) => Storage(),
-//    '/telephone': (context) => Telephone(),
-//    '/garden': (context) => Garden(),
-//    '/garden2': (context) => Garden2(),
-//    '/garden3': (context) => Garden3(),
-//    '/bedroom': (context) => Bedroom(),
-//    '/outside': (context) => Outside(),
-//    '/community': (context) => Community(),
-//    '/grocery': (context) => Grocery(),
-//    '/park': (context) => Park(),
-//    '/mall': (context) => Mall(),
-//    '/cityCentre': (context) => CityCentre(),
-//    '/restaurants': (context) => Restaurants(),
   },
 )
 );
