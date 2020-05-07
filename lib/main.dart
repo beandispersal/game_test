@@ -5,10 +5,6 @@ import 'package:lwk/Telephone.dart';
 import 'package:lwk/Garden.dart';
 import 'package:lwk/Bedroom.dart';
 
-
-
-
-
 void main() => runApp(MaterialApp(
   theme: ThemeData(
       primaryTextTheme: TextTheme(title: TextStyle(fontSize: 40)),
@@ -40,59 +36,66 @@ class _StartState extends State<Start> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('The COVID-19 Survival Guide')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 30,),
-            Text('Welcome!',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
-            SizedBox(height: 100),
-            Text('Where do you wanna go?'),
-            SizedBox(height: 40),
-            RaisedButton(
-              onPressed: (){
-                Navigator.push(context, ScaleRoute(page: Kitchen()));
-              },
-              child: Text('Kitchen'),
+      body: Stack(
+        children: <Widget>[
+//          Container(
+//            decoration: BoxDecoration(image: DecorationImage(image: Image'imageBckg.jpg',fit: BoxFit.cover)),
+//          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 30,),
+                Text('Welcome!',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+                SizedBox(height: 100),
+                Text('Where do you wanna go?'),
+                SizedBox(height: 40),
+                RaisedButton(
+                  onPressed: (){
+                    Navigator.push(context, ScaleRoute(page: Kitchen()));
+                  },
+                  child: Text('Kitchen'),
+                ),
+                RaisedButton(
+                  onPressed: (){
+                    Navigator.push(context, ScaleRoute(page: Storage()));
+                  },
+                  child: Text('Storage'),
+                ),
+                RaisedButton(
+                  onPressed: (){
+                    Navigator.push(context, ScaleRoute(page: Telephone()));
+                  },
+                  child: Text('Telephone'),
+                ),
+                RaisedButton(
+                  onPressed: (){
+                    Navigator.push(context, ScaleRoute(page: Garden()));
+                  },
+                  child: Text('Garden'),
+                ),
+                RaisedButton(
+                  onPressed: () async {
+                    await showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            content: Text('I\'m glad you are well-rested.'),
+                            actions: <Widget>[FlatButton(
+                              onPressed: (){Navigator.of(context).pop();},
+                              child: Text('Ok'),
+                            )],
+                          );
+                        }
+                    );
+                    Navigator.push(context, ScaleRoute(page: Bedroom()));
+                  },
+                  child: Text('Sleep'),
+                ),
+              ],
             ),
-            RaisedButton(
-              onPressed: (){
-                Navigator.push(context, ScaleRoute(page: Storage()));
-              },
-              child: Text('Storage'),
-            ),
-            RaisedButton(
-              onPressed: (){
-                Navigator.push(context, ScaleRoute(page: Telephone()));
-              },
-              child: Text('Telephone'),
-            ),
-            RaisedButton(
-              onPressed: (){
-                Navigator.push(context, ScaleRoute(page: Garden()));
-              },
-              child: Text('Garden'),
-            ),
-            RaisedButton(
-              onPressed: () async {
-                await showDialog<void>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        content: Text('I\'m glad you are well-rested.'),
-                        actions: <Widget>[FlatButton(
-                          onPressed: (){Navigator.of(context).pop();},
-                          child: Text('Ok'),
-                        )],
-                      );
-                    }
-                );
-                Navigator.push(context, ScaleRoute(page: Bedroom()));
-              },
-              child: Text('Sleep'),
-            ),
-          ],
-        ),
+          ),
+        ]
       ),
     );
   }
