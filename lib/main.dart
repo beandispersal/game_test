@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lwk/AuthLogin.dart';
 import 'package:lwk/Kitchen.dart';
 import 'package:lwk/Storage.dart';
 import 'package:lwk/Telephone.dart';
@@ -52,7 +53,8 @@ class _StartState extends State<Start> {
                 SizedBox(height: 40),
                 RaisedButton(
                   onPressed: (){
-                    Navigator.push(context, ScaleRoute(page: Kitchen()));
+                    Navigator.push(context, ScaleRoute(page: SignIn()));
+                    //Navigator.push(context, ScaleRoute(page: Kitchen()));
                   },
                   child: Text('Kitchen'),
                 ),
