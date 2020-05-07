@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/Garden.dart';
-import 'package:lwk/Kitchen2.dart';
-import 'package:lwk/Kitchen3.dart';
-import 'package:lwk/Outside.dart';
-import 'package:lwk/Storage.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/Garden.dart';
+import 'package:lwk/Game/Kitchen2.dart';
+import 'package:lwk/Game/Kitchen3.dart';
+import 'package:lwk/Game/Outside.dart';
+import 'package:lwk/Game/Storage.dart';
 import 'package:lwk/main.dart';
 class Kitchen extends StatelessWidget {
   @override

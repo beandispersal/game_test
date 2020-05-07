@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Garden.dart';
-import 'package:lwk/Kitchen.dart';
-import 'package:lwk/Storage.dart';
-import 'package:lwk/Telephone.dart';
+import 'package:lwk/Game/Garden.dart';
+import 'package:lwk/Game/Kitchen.dart';
+import 'package:lwk/Game/Storage.dart';
+import 'package:lwk/Game/Telephone.dart';
 import 'package:lwk/main.dart';
 
 class Bedroom extends StatelessWidget {

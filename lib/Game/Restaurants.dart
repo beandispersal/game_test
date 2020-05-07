@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/CityCentre.dart';
-import 'package:lwk/Grocery.dart';
-import 'package:lwk/Kitchen.dart';
-import 'package:lwk/Mall.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/CityCentre.dart';
+import 'package:lwk/Game/Grocery.dart';
+import 'package:lwk/Game/Kitchen.dart';
+import 'package:lwk/Game/Mall.dart';
 import 'package:lwk/main.dart';
 
 class Restaurants extends StatelessWidget {

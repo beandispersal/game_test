@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lwk/main.dart';
-import 'package:lwk/Kitchen.dart';
+import 'package:lwk/Game/Kitchen.dart';
 
 class Kitchen3 extends StatelessWidget {
   @override

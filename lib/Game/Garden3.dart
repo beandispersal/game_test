@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lwk/Garden.dart';
-import 'package:lwk/Storage.dart';
+import 'package:lwk/Game/Garden.dart';
+import 'package:lwk/Game/Kitchen.dart';
 import 'package:lwk/main.dart';
-class Kitchen2 extends StatelessWidget {
+class Garden3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,10 +11,10 @@ class Kitchen2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 30,),
-            Text('Kitchen',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+            SizedBox(height: 30),
+            Text('Garden',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
             Container(
-              child: Text('Your beans have grown in volume.'),
+              child: Text('Great! You Earned'),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.green[300],
@@ -28,15 +27,15 @@ class Kitchen2 extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
               },
-              child: Text('Plant beans sprout'),
+              child: Text('Go back home'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
               },
-              child: Text('Store beans'),
+              child: Text('Go plant more'),
             ),
           ],
         ),

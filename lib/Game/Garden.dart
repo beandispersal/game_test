@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Garden2.dart';
-import 'package:lwk/Kitchen.dart';
-import 'package:lwk/Outside.dart';
+import 'package:lwk/Game/Garden2.dart';
+import 'package:lwk/Game/Kitchen.dart';
+import 'package:lwk/Game/Outside.dart';
 import 'package:lwk/main.dart';
 
 class Garden extends StatelessWidget {

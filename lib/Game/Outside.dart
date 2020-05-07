@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/CityCentre.dart';
-import 'package:lwk/Community.dart';
-import 'package:lwk/Grocery.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/Community.dart';
+import 'package:lwk/Game/Grocery.dart';
+import 'package:lwk/Game/Park.dart';
 import 'package:lwk/main.dart';
 
-class Park extends StatelessWidget {
+class Outside extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,21 @@ class Park extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30,),
-            Text('Park',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+            Text('Outside',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Text('Don\'t forget to wear mask.'),
+                  Text('Practice social distancing.'),
+                ],
+              ),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.green[300],
+                border: Border.all(width: 2.0),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              ),
+            ),
             SizedBox(height: 100),
             Text('Where do you wanna go?'),
             SizedBox(height: 40),
@@ -33,9 +47,9 @@ class Park extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: CityCentre()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Park()));
               },
-              child: Text('City Centre'),
+              child: Text('Park'),
             ),
             RaisedButton(
               onPressed: (){

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/Restaurants.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/Restaurants.dart';
 import 'package:lwk/main.dart';
 
 class Mall extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lwk/Community.dart';
-import 'package:lwk/Mall.dart';
-import 'package:lwk/Restaurants.dart';
+import 'package:lwk/Game/Community.dart';
+import 'package:lwk/Game/Mall.dart';
+import 'package:lwk/Game/Restaurants.dart';
 import 'package:lwk/main.dart';
 
 class CityCentre extends StatelessWidget {

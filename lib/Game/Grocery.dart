@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/Community.dart';
-import 'package:lwk/Grocery.dart';
-import 'package:lwk/Park.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/CityCentre.dart';
+import 'package:lwk/Game/Community.dart';
+import 'package:lwk/Game/Park.dart';
 import 'package:lwk/main.dart';
 
-class Outside extends StatelessWidget {
+class Grocery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,21 +15,7 @@ class Outside extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30,),
-            Text('Outside',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Text('Don\'t forget to wear mask.'),
-                  Text('Practice social distancing.'),
-                ],
-              ),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.green[300],
-                border: Border.all(width: 2.0),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              ),
-            ),
+            Text('Grocery',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
             SizedBox(height: 100),
             Text('Where do you wanna go?'),
             SizedBox(height: 40),
@@ -41,9 +27,9 @@ class Outside extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Grocery()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
-              child: Text('Grocery'),
+              child: Text('Home'),
             ),
             RaisedButton(
               onPressed: (){
@@ -53,9 +39,9 @@ class Outside extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
+                Navigator.pushReplacement(context, ScaleRoute(page: CityCentre()));
               },
-              child: Text('Home'),
+              child: Text('City Centre'),
             ),
           ],
         ),

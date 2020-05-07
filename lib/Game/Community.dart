@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lwk/CityCentre.dart';
-import 'package:lwk/Grocery.dart';
-import 'package:lwk/Park.dart';
+import 'package:lwk/Game/CityCentre.dart';
+import 'package:lwk/Game/Grocery.dart';
+import 'package:lwk/Game/Park.dart';
 import 'package:lwk/main.dart';
-import 'package:lwk/Bedroom.dart';
+import 'package:lwk/Game/Bedroom.dart';
 
 class Community extends StatelessWidget {
   @override

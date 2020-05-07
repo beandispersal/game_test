@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/Garden.dart';
-import 'package:lwk/Kitchen.dart';
-import 'package:lwk/Outside.dart';
-import 'package:lwk/Telephone.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/CityCentre.dart';
+import 'package:lwk/Game/Community.dart';
+import 'package:lwk/Game/Grocery.dart';
 import 'package:lwk/main.dart';
-class Storage extends StatelessWidget {
+
+class Park extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,39 +15,33 @@ class Storage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30,),
-            Text('Storage',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+            Text('Park',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
             SizedBox(height: 100),
             Text('Where do you wanna go?'),
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Community()));
               },
-              child: Text('Get some seeds to plant'),
+              child: Text('Community'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Grocery()));
               },
-              child: Text('Get some food to cook'),
+              child: Text('Grocery'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Telephone()));
+                Navigator.pushReplacement(context, ScaleRoute(page: CityCentre()));
               },
-              child: Text('Telephone'),
-            ),
-            RaisedButton(
-              onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Outside()));
-              },
-              child: Text('Outside'),
+              child: Text('City Centre'),
             ),
             RaisedButton(
               onPressed: (){
                 Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
               },
-              child: Text('Bedroom'),
+              child: Text('Home'),
             ),
           ],
         ),

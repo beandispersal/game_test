@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lwk/Garden3.dart';
-import 'package:lwk/Storage.dart';
+import 'package:lwk/Game/Garden.dart';
+import 'package:lwk/Game/Storage.dart';
 import 'package:lwk/main.dart';
-class Garden2 extends StatelessWidget {
+class Kitchen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,15 +12,15 @@ class Garden2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 30),
-            Text('Garden',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+            SizedBox(height: 30,),
+            Text('Kitchen',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
             Container(
-              child: Text('Harvested!'),
+              child: Text('Your beans have grown in volume.'),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Colors.green[300],
-                  border: Border.all(width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                color: Colors.green[300],
+                border: Border.all(width: 2.0),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
             ),
             SizedBox(height: 100),
@@ -27,15 +28,15 @@ class Garden2 extends StatelessWidget {
             SizedBox(height: 40),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
               },
-              child: Text('Store it'),
+              child: Text('Plant beans sprout'),
             ),
             RaisedButton(
               onPressed: (){
-                Navigator.pushReplacement(context, ScaleRoute(page: Garden3()));
+                Navigator.pushReplacement(context, ScaleRoute(page: Storage()));
               },
-              child: Text('Sell it'),
+              child: Text('Store beans'),
             ),
           ],
         ),

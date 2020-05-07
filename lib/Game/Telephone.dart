@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lwk/Bedroom.dart';
-import 'package:lwk/Garden.dart';
-import 'package:lwk/Outside.dart';
+import 'package:lwk/Game/Bedroom.dart';
+import 'package:lwk/Game/Garden.dart';
+import 'package:lwk/Game/Outside.dart';
 import 'package:lwk/main.dart';
 class Telephone extends StatelessWidget {
   @override
