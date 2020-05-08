@@ -13,6 +13,7 @@ class _SignInState extends State<SignIn> {
   String password;
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
+  String err = '';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class _SignInState extends State<SignIn> {
                 children: <Widget>[
                   TextFormField(
                     validator: (val) => val.isEmpty ? 'Enter an email' : null,
-
+                    initialValue: 'a@a.co',
                     onChanged: (val){
                       setState(() {
                         email = val;
@@ -41,6 +42,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   TextFormField(
                     validator: (val) => val.length < 8 ? 'Password must be at least 8 characters' : null,
+                    initialValue: '1234567',
                     onChanged: (val){
                       setState(() {
                         password = val;
@@ -62,12 +64,8 @@ class _SignInState extends State<SignIn> {
                                 if (result == null){
                                   setState(() {
                                     loading = false;
+                                    err = 'Incorrect Email/Password';
                                   });
-                                  Scaffold.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text('Incorrect Email/Password',textAlign: TextAlign.center,),
-                                      )
-                                  );
                                 }
                               };
                             },
@@ -85,29 +83,18 @@ class _SignInState extends State<SignIn> {
                                 if (result == null){
                                   setState(() {
                                     loading = false;
+                                    err = 'Invalid Email';
                                   });
-                                  Scaffold.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text('Please enter a valid email',textAlign: TextAlign.center,),
-                                      )
-                                  );
                                 }
                               };
                             },
                             child: Text('Register')
                         ),
                       ),
+
                     ]
                   ),
-                  RaisedButton(
-                      onPressed: () async {
-                        setState(() {
-                          loading = true;
-                        });
-                        await _auth.signInAnon();
-                      },
-                      child: Text('_DEBUG_bypassSignIn')
-                  )
+                  Text(err, style: TextStyle(color: Colors.red)),
                 ],
               ),
             ),
@@ -127,9 +114,11 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+
       content: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
+
       children: <Widget>[
         CircularProgressIndicator(),
         SizedBox(height: 10),
@@ -138,3 +127,4 @@ class _LoadingState extends State<Loading> {
     ));
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:lwk/Database_service.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -7,16 +8,17 @@ class AuthService {
     return _auth.onAuthStateChanged;
   }
 
-  Future signInAnon() async {
-    try{
-      AuthResult result = await _auth.signInAnonymously();
-      FirebaseUser user = result.user;
-      return user;
-  }catch (e){
-      print(e.toString());
-      return null;
-    }
-  }
+//  Future signInAnon() async {
+//    try{
+//      AuthResult result = await _auth.signInAnonymously();
+//      FirebaseUser user = result.user;
+//      await DatabaseService(uid: user.uid).updateUserData(100.00, 100);
+//      return user;
+//  }catch (e){
+//      print(e.toString());
+//      return null;
+//    }
+//  }
 
   Future signIn(String email, String password) async {
     try{
@@ -33,6 +35,7 @@ class AuthService {
     try{
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
+      await DatabaseService(uid: user.uid).updateUserData(200.00, 100,['initial']);
       return user;
     }catch (e){
       print(e.toString());
