@@ -7,13 +7,18 @@ class DatabaseService {
 
   final CollectionReference dataCollection = Firestore.instance.collection('data');
 
-  Future updateUserData(double money, int hunger, List history) async {
+  Future updateUserData(double money, int hunger, List history, List best, String username) async {
     return await dataCollection.document(uid).setData({
       'money': money ?? 0,
       'hunger': hunger ?? 0,
       'zhistory': history ?? [],
-      // 'history': [],
+      'zbest': best ?? [],
+      'username' : username ?? '',
     });
+  }
+
+  Stream<UserData> get userData{
+    return dataCollection.document(uid).snapshots().map(_userDatafSnps);
   }
 
   UserData _userDatafSnps(DocumentSnapshot snapshot) {
@@ -22,11 +27,8 @@ class DatabaseService {
       hunger: snapshot.data['hunger'],
       money: snapshot.data['money'],
       zhistory: snapshot.data['zhistory'],
+      zbest: snapshot.data['zbest'],
+      username: snapshot.data['username'],
     );
   }
-
-  Stream<UserData> get userData{
-    return dataCollection.document(uid).snapshots().map(_userDatafSnps);
-  }
-
 }

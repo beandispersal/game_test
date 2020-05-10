@@ -32,7 +32,7 @@ class _SignInState extends State<SignIn> {
                 children: <Widget>[
                   TextFormField(
                     validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                    initialValue: 'a@a.co',
+                    //initialValue: 'a@a.co',
                     onChanged: (val){
                       setState(() {
                         email = val;
@@ -42,7 +42,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   TextFormField(
                     validator: (val) => val.length < 8 ? 'Password must be at least 8 characters' : null,
-                    initialValue: '1234567',
+                    //initialValue: '1234567',
                     onChanged: (val){
                       setState(() {
                         password = val;

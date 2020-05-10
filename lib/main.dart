@@ -15,7 +15,7 @@ class Main extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
         theme: ThemeData(
-          primaryTextTheme: TextTheme(title: TextStyle(fontSize: 40)),
+          primaryTextTheme: TextTheme(title: TextStyle(fontSize: 29.8)),
           //dialogTheme: DialogTheme(contentTextStyle: TextStyle(fontSize: 20)),
           fontFamily: 'tStyle',
           textTheme: TextTheme(
