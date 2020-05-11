@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "418295136263",
+    "firebase_url": "https://game-test-5deb3.firebaseio.com",
+    "project_id": "game-test-5deb3",
+    "storage_bucket": "game-test-5deb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418295136263:android:df4027ec960866aae9aaa2",
+        "android_client_info": {
+          "package_name": "com.lwk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418295136263-j8jfibjf13iqcevf4h5ck9gsis35k4c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3sVGn9ZBy4Btr2H_fQmVU3dsbbUU-h9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418295136263-j8jfibjf13iqcevf4h5ck9gsis35k4c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
