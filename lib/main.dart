@@ -16,7 +16,8 @@ void main() => runApp(MaterialApp(
         body1: TextStyle(fontSize: 35),
         button: TextStyle(fontSize: 30),
       ),
-      buttonTheme: ButtonThemeData(buttonColor: Colors.pink[300]),
+      buttonTheme: ButtonThemeData(buttonColor: Colors.amber.withOpacity(0.60)),
+    
     ),
 //  home: Start(),
   initialRoute: '/',
