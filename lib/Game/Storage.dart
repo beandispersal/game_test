@@ -23,16 +23,24 @@ class _StorageState extends State<Storage> {
   Widget build(BuildContext context) {
     final user = Provider.of<FirebaseUser>(context);
     return Scaffold(
-      appBar: AppBar(title: Text('The COVID-19 Survival Guide')),
+    appBar: AppBar(title: Text('The COVID-19 Survival Guide')),
     body: StreamBuilder<UserData>(
     stream: DatabaseService(uid: user.uid).userData,
     builder: (context, snapshot) {
     if (snapshot.hasData) {
     UserData userData = snapshot.data;
-          return isGameOver ? GameOver() : Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+          return isGameOver ? GameOver() : Stack(
               children: <Widget>[
+                Container(
+                  width: 800,
+                  height: 400,
+                  child: Image(
+                      fit:BoxFit.cover,
+                      // height: double.infinity ,
+                      // width: double.infinity,
+                      image: AssetImage('assets/background.png')
+                  ),
+                ),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0,0,8,0),
@@ -70,137 +78,188 @@ class _StorageState extends State<Storage> {
                     ),
                   ),
                 ),
-                Text('Storage',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
+                Positioned(
+                  child:
+                  Text('Storage',style: TextStyle
+                    (color: Colors.white,
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
 
-                Text('Where do you wanna go?'),
-                SizedBox(height: 40),
-                RaisedButton(
-                  onPressed: (){
-                    userData.zhistory.add('Garden');
-                    DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                    setState(() {
-                      isGameOver = Check().checkHunger(userData.hunger);
-                    });
-                    if (!isGameOver) {
-                      Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
-                    }
-                  },
-                  child: Container(
-                    constraints: BoxConstraints.tightForFinite(width: 300),
-                    child: Row(
+                  ),),
+                  top: 20,
+                  left: 270,
+                ),
+                //  SizedBox(height: 30,),
+                // SizedBox(height: 100),
+                Positioned(
+                  child:
+                  Text('Where do you wanna go?',
+                    style:  TextStyle(color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  top: 70,
+                  left: 200,
+                ),
+                // SizedBox(height: 40),
+
+                Positioned(
+                  top: 110,
+                  left: 100,
+                  child: Center(
+                    child: Column(
                       children: <Widget>[
-                        Container(
-                            constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                            padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                            child: Image(image: AssetImage('assets/getsomeseedstoplant.png')))
-                        ,
-                        Text('Get some seeds to plant'),
+                        RaisedButton(
+                          onPressed: (){
+                            Navigator.pushReplacement(context, ScaleRoute(page: Telephone()));
+                          },
+                          child: Container(
+                            constraints: BoxConstraints.tightForFinite(
+                                width: 180
+                            ),
+                            child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    height: 30,
+                                    width: 30,
+                                    margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                                    child:
+                                    Image(
+                                        image:AssetImage('assets/telephone.png')
+                                    ),
+                                  ),
+                                  Text('Telephone'),
+
+                                ]
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-                RaisedButton(
-                  onPressed: (){
-                    userData.zhistory.add('Kitchen');
-                    DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                    setState(() {
-                      isGameOver = Check().checkHunger(userData.hunger);
-                    });
-                    if (!isGameOver) {
+
+                Positioned(
+                  top: 160,
+                  left: 100,
+                  child: RaisedButton(
+                    onPressed: (){
                       Navigator.pushReplacement(context, ScaleRoute(page: Kitchen()));
-                    }
-                  },
-                  child: Container(
-                    constraints: BoxConstraints.tightForFinite(width: 300),
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                            constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                            padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                            child: Image(image: AssetImage('assets/kitchen.png')))
-                        ,
-                        Text('Get some food to cook'),
-                      ],
+                    },
+                    child:Container(
+                      constraints: BoxConstraints.tightForFinite(
+                          width: 180
+                      ),
+                      child:Row(
+                        children: <Widget>[
+                          Container(
+                            width:30,
+                            height:30,
+                            margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                            child: Image(
+                              image: AssetImage('assets/cooking.png'),
+                            ),
+                          ),
+                          Text('Cook some food!'),
+
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                RaisedButton(
-                  onPressed: (){
-                    userData.zhistory.add('Telephone');
-                    DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                    setState(() {
-                      isGameOver = Check().checkHunger(userData.hunger);
-                    });
-                    if (!isGameOver) {
-                      Navigator.pushReplacement(context, ScaleRoute(page: Telephone()));
-                    }
-                  },
-                  child: Container(
-                    constraints: BoxConstraints.tightForFinite(width: 300),
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                            constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                            padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                            child: Image(image: AssetImage('assets/telephone.png')))
-                        ,
-                        Text('Telephone'),
-                      ],
-                    ),
-                  ),
-                ),
-                RaisedButton(
-                  onPressed: (){
-                    userData.zhistory.add('Outside');
-                    DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                    setState(() {
-                      isGameOver = Check().checkHunger(userData.hunger);
-                    });
-                    if (!isGameOver) {
+
+                Positioned(
+                  top: 210,
+                  left: 100,
+                  child: RaisedButton(
+                    onPressed: (){
                       Navigator.pushReplacement(context, ScaleRoute(page: Outside()));
-                    }
-                  },
-                  child: Container(
-                    constraints: BoxConstraints.tightForFinite(width: 300),
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                            constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                            padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                            child: Image(image: AssetImage('assets/outside.png')))
-                        ,
-                        Text('Outside'),
-                      ],
+                    },
+                    child:
+                    Container(
+                      constraints: BoxConstraints.tightForFinite(
+                          width: 180
+                      ),
+                      child: Row(
+
+                        children: <Widget>[
+                          Container(
+                            width:30,
+                            height:30,
+                            margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                            child: Image(
+                              image: AssetImage('assets/park.png'),
+                            ),
+                          ),
+                          Text('Outside'),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                RaisedButton(
-                  onPressed: (){
-                    userData.zhistory.add('Bedroom');
-                    DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                    setState(() {
-                      isGameOver = Check().checkHunger(userData.hunger);
-                    });
-                    if (!isGameOver) {
+
+                Positioned(
+                  top: 110,
+                  left: 330,
+                  child: RaisedButton(
+                    onPressed: (){
                       Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
-                    }
-                  },
-                  child: Container(
-                    constraints: BoxConstraints.tightForFinite(width: 300),
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                            constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                            padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                            child: Image(image: AssetImage('assets/sleep.png')))
-                        ,
-                        Text('Bedroom'),
-                      ],
+                    },
+                    child: Container(
+                      constraints: BoxConstraints.tightForFinite(
+                          width: 180
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            width:30,
+                            height:30,
+                            margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                            child: Image(
+                              image: AssetImage('assets/bedroom.png'),
+
+                            ),
+                          ),
+
+                          Text('Bedroom'),
+
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                Positioned(
+                  top: 160,
+                  left: 330,
+                  child: RaisedButton(
+                    onPressed: (){
+                      Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
+                    },
+                    child: Container(
+                      constraints: BoxConstraints.tightForFinite(
+                          width: 180
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            width:30,
+                            height:30,
+                            margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                            child: Image(
+                              image: AssetImage('assets/garden.png'),
+                            ),
+                          ),
+                          Text('Garden'),
+
+
+
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ],
-            ),
           );
         } else {
       return Container();

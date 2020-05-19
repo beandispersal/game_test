@@ -5,7 +5,7 @@ import 'package:lwk/Wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
+);
 void main() => runApp(Main());
 
 class Main extends StatelessWidget {
@@ -15,7 +15,7 @@ class Main extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
         theme: ThemeData(
-          primaryTextTheme: TextTheme(title: TextStyle(fontSize: 29.8)),
+          primaryTextTheme: TextTheme(title: TextStyle(fontSize: 40)),
           //dialogTheme: DialogTheme(contentTextStyle: TextStyle(fontSize: 20)),
           fontFamily: 'tStyle',
           textTheme: TextTheme(
@@ -24,7 +24,7 @@ class Main extends StatelessWidget {
             body1: TextStyle(fontSize: 35),
             button: TextStyle(fontSize: 30),
           ),
-          buttonTheme: ButtonThemeData(buttonColor: Color(0xB3F25CA2)),
+          buttonTheme: ButtonThemeData(buttonColor: Colors.amber),
         ),
         //home: Wrapper(),
         routes: {
