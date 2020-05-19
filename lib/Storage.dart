@@ -15,7 +15,7 @@ class Storage extends StatelessWidget {
         children: <Widget> [
 
           Container(
-            width: 500,
+            width: 800,
             height: 400,
             child: Image(
              fit:BoxFit.cover,
@@ -25,21 +25,35 @@ class Storage extends StatelessWidget {
             ),
           ),
 
-          Positioned(
+            Positioned(
             child:
-            Text('Storage',style: TextStyle(fontSize: 50,decoration: TextDecoration.underline),),
-            top: 50,
-            left: 140,
+            Text('Storage',style: TextStyle
+              (color: Colors.white,
+               fontSize: 50,
+               fontWeight: FontWeight.bold,
+               decoration: TextDecoration.underline,
+
+            ),),
+            top: 20,
+            left: 270,
           ),
           //  SizedBox(height: 30,),
 
            // SizedBox(height: 100),
-          Text('Where do you wanna go?'),
+          Positioned(
+              child:
+              Text('Where do you wanna go?',
+               style:  TextStyle(color: Colors.white,
+               fontWeight: FontWeight.bold),
+          ),
+            top: 70,
+            left: 200,
+          ),
            // SizedBox(height: 40),
 
 
           Positioned(
-            top: 120,
+            top: 110,
             left: 100,
             child: Center(
           child: Column(
@@ -77,7 +91,7 @@ class Storage extends StatelessWidget {
 
 
           Positioned(
-            top: 170,
+            top: 160,
             left: 100,
             child: RaisedButton(
             onPressed: (){
@@ -107,7 +121,7 @@ class Storage extends StatelessWidget {
 
 
         Positioned(
-          top: 220,
+          top: 210,
           left: 100,
           child: RaisedButton(
           onPressed: (){
@@ -136,58 +150,66 @@ class Storage extends StatelessWidget {
           ),
         ),
 
-        RaisedButton(
-            onPressed: (){
-          Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
-            },
-          child: Container(
-            constraints: BoxConstraints.tightForFinite(
-            width: 180
-            ),
-            child: Row(
-          children: <Widget>[
-            Container(
-              width:30,
-              height:30,
-              margin:EdgeInsets.fromLTRB(0, 0,10,0),
-              child: Image(
-                image: AssetImage('assets/bedroom.png'),
+        Positioned(
+          top: 110,
+          left: 330,
+          child: RaisedButton(
+              onPressed: (){
+            Navigator.pushReplacement(context, ScaleRoute(page: Bedroom()));
+              },
+            child: Container(
+              constraints: BoxConstraints.tightForFinite(
+              width: 180
+              ),
+              child: Row(
+            children: <Widget>[
+              Container(
+                width:30,
+                height:30,
+                margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                child: Image(
+                  image: AssetImage('assets/bedroom.png'),
 
+                ),
+              ),
+
+             Text('Bedroom'),
+
+            ],
+              ),
               ),
             ),
+        ),
 
-           Text('Bedroom'),
+          Positioned(
+            top: 160,
+            left: 330,
+            child: RaisedButton(
+            onPressed: (){
+              Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
+            },
+            child: Container(
+              constraints: BoxConstraints.tightForFinite(
+                  width: 180
+              ),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width:30,
+                    height:30,
+                    margin:EdgeInsets.fromLTRB(0, 0,10,0),
+                    child: Image(
+                    image: AssetImage('assets/garden.png'),
+                    ),
+              ),
+                  Text('Garden'),
 
-          ],
+
+
+                    ],
+              ),
             ),
             ),
-          ),
-
-          RaisedButton(
-          onPressed: (){
-            Navigator.pushReplacement(context, ScaleRoute(page: Garden()));
-          },
-          child: Container(
-            constraints: BoxConstraints.tightForFinite(
-                width: 180
-            ),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  width:30,
-                  height:30,
-                  margin:EdgeInsets.fromLTRB(0, 0,10,0),
-                  child: Image(
-                  image: AssetImage('assets/garden.png'),
-                  ),
-            ),
-                Text('Garden'),
-
-
-
-                  ],
-            ),
-          ),
           ),
           ],
           ),
