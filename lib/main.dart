@@ -5,7 +5,6 @@ import 'package:lwk/Wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-);
 void main() => runApp(Main());
 
 class Main extends StatelessWidget {
