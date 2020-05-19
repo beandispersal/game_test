@@ -218,45 +218,63 @@ class _StartState extends State<Start> {
                   Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0,10,8,0),
-                          child: Align(
-                            alignment: Alignment.topRight,
-                            child: Container(
-                              constraints: BoxConstraints.tightFor(width: 100),
-                              decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(20.0)
+                      children: [
+                        Stack(
+                          children: <Widget>[
+                            Center(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.pink,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(20.0)
+                                  ),
                                 ),
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: <Widget>[
-                                      Icon(Icons.favorite, color: Color(0xFFF25CA2)),
-                                      Text(userData.hunger.toString(),style: TextStyle(fontSize: 25)),
-                                      Icon(Icons.add, color: Colors.white)
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: <Widget>[
-                                      Icon(Icons.attach_money, color: Colors.green[900]),
-                                      Text(userData.money.toString(),style: TextStyle(fontSize: 25)),
-                                      Icon(Icons.add, color: Colors.white)
-                                    ],
-                                  ),
-                                ],
+                                margin: EdgeInsets.fromLTRB(0,0,0,8),
+                                padding: EdgeInsets.fromLTRB(8.0,8,8,0),
+                                child: Text('Welcome!', style: TextStyle(
+                                    fontSize: 50, decoration: TextDecoration.underline)),
                               ),
                             ),
-                          ),
+                            Positioned(
+                              right: 0,
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(0,10,8,0),
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: Container(
+                                    constraints: BoxConstraints.tightFor(width: 100),
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0)
+                                      ),
+                                    ),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: <Widget>[
+                                            Icon(Icons.favorite, color: Color(0xFFF25CA2)),
+                                            Text(userData.hunger.toString(),style: TextStyle(fontSize: 25)),
+                                            Icon(Icons.add, color: Colors.white)
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: <Widget>[
+                                            Icon(Icons.attach_money, color: Colors.green[900]),
+                                            Text(userData.money.toString(),style: TextStyle(fontSize: 25)),
+                                            Icon(Icons.add, color: Colors.white)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        Text('Welcome!', style: TextStyle(
-                            fontSize: 50, decoration: TextDecoration.underline),),
-
                         Container(
                           padding: EdgeInsets.all(10),
                           child: Text('Where do you wanna go?'),
@@ -267,147 +285,154 @@ class _StartState extends State<Start> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 40),
-                        RaisedButton(
-                          onPressed: () {
-                            userData.zhistory.add('Kitchen');
-                            DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                            setState(() {
-                              isGameOver = Check().checkHunger(userData.hunger);
-                            });
-                            if (!isGameOver) {
-                              Navigator.push(context, ScaleRoute(page: Kitchen()));
-                            }
-                          },
-                          child: Container(
-                            constraints: BoxConstraints.tightForFinite(width: 300),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                    constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                                    padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                                    child: Image(image: AssetImage('assets/kitchen.png')))
-                                ,
-                                Text('Kitchen'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        RaisedButton(
-                          onPressed: () {
-                            userData.zhistory.add('Storage');
-                            DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                            setState(() {
-                              isGameOver = Check().checkHunger(userData.hunger);
-                            });
-                            if (!isGameOver) {
-                              Navigator.push(context, ScaleRoute(page: Storage()));
-                            }
-                          },
-                          child: Container(
-                            constraints: BoxConstraints.tightForFinite(width: 300),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                    constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                                    padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                                    child: Image(image: AssetImage('assets/storage.png')))
-                                ,
-                                Text('Storage'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        RaisedButton(
-                          onPressed: () {
-                            userData.zhistory.add('Telephone');
-                            DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                            setState(() {
-                              isGameOver = Check().checkHunger(userData.hunger);
-                            });
-                            if (!isGameOver) {
-                              Navigator.push(context, ScaleRoute(page: Telephone()));
-                            }
-                          },
-                          child: Container(
-                            constraints: BoxConstraints.tightForFinite(width: 300),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                    constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                                    padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                                    child: Image(image: AssetImage('assets/telephone.png')))
-                                ,
-                                Text('Telephone'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        RaisedButton(
-                          onPressed: () {
-                            userData.zhistory.add('Garden');
-                            DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                            setState(() {
-                              isGameOver = Check().checkHunger(userData.hunger);
-                            });
-                            if (!isGameOver) {
-                              Navigator.push(
-                                  context, ScaleRoute(page: Garden()));
-                            }
-                          },
-                          child: Container(
-                            constraints: BoxConstraints.tightForFinite(width: 300),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                    constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                                    padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                                    child: Image(image: AssetImage('assets/garden.png')))
-                                ,
-                                Text('Garden'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        RaisedButton(
-                          onPressed: () async {
-                            userData.zhistory.add('Bedroom');
-                            DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
-                            setState(() {
-                              isGameOver = Check().checkHunger(userData.hunger);
-                            });
-                            await showDialog<void>(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    content: Text('I\'m glad you are well-rested.'),
-                                    actions: <Widget>[FlatButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Text('Ok'),
-                                    )
+                        Expanded(flex:1,child: SizedBox(height: 40)),
+                        Expanded(
+                          flex: 20,
+                          child: Wrap(
+                            children: <Widget>[
+                              RaisedButton(
+                                onPressed: () {
+                                  userData.zhistory.add('Kitchen');
+                                  DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
+                                  setState(() {
+                                    isGameOver = Check().checkHunger(userData.hunger);
+                                  });
+                                  if (!isGameOver) {
+                                    Navigator.push(context, ScaleRoute(page: Kitchen()));
+                                  }
+                                },
+                                child: Container(
+                                  constraints: BoxConstraints.tightForFinite(width: 300),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                          constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
+                                          padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
+                                          child: Image(image: AssetImage('assets/kitchen.png')))
+                                      ,
+                                      Text('Kitchen'),
                                     ],
+                                  ),
+                                ),
+                              ),
+                              RaisedButton(
+                                onPressed: () {
+                                  userData.zhistory.add('Storage');
+                                  DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
+                                  setState(() {
+                                    isGameOver = Check().checkHunger(userData.hunger);
+                                  });
+                                  if (!isGameOver) {
+                                    Navigator.push(context, ScaleRoute(page: Storage()));
+                                  }
+                                },
+                                child: Container(
+                                  constraints: BoxConstraints.tightForFinite(width: 300),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                          constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
+                                          padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
+                                          child: Image(image: AssetImage('assets/storage.png')))
+                                      ,
+                                      Text('Storage'),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              RaisedButton(
+                                onPressed: () {
+                                  userData.zhistory.add('Telephone');
+                                  DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
+                                  setState(() {
+                                    isGameOver = Check().checkHunger(userData.hunger);
+                                  });
+                                  if (!isGameOver) {
+                                    Navigator.push(context, ScaleRoute(page: Telephone()));
+                                  }
+                                },
+                                child: Container(
+                                  constraints: BoxConstraints.tightForFinite(width: 300),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                          constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
+                                          padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
+                                          child: Image(image: AssetImage('assets/telephone.png')))
+                                      ,
+                                      Text('Telephone'),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              RaisedButton(
+                                onPressed: () {
+                                  userData.zhistory.add('Garden');
+                                  DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
+                                  setState(() {
+                                    isGameOver = Check().checkHunger(userData.hunger);
+                                  });
+                                  if (!isGameOver) {
+                                    Navigator.push(
+                                        context, ScaleRoute(page: Garden()));
+                                  }
+                                },
+                                child: Container(
+                                  constraints: BoxConstraints.tightForFinite(width: 300),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                          constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
+                                          padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
+                                          child: Image(image: AssetImage('assets/garden.png')))
+                                      ,
+                                      Text('Garden'),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              RaisedButton(
+                                onPressed: () async {
+                                  userData.zhistory.add('Bedroom');
+                                  DatabaseService(uid: user.uid).updateUserData(userData.money, userData.hunger-1, userData.zhistory, userData.zbest, userData.username);
+                                  setState(() {
+                                    isGameOver = Check().checkHunger(userData.hunger);
+                                  });
+                                  await showDialog<void>(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          content: Text('I\'m glad you are well-rested.'),
+                                          actions: <Widget>[FlatButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Ok'),
+                                          )
+                                          ],
+                                        );
+                                      }
                                   );
-                                }
-                            );
-                            if (!isGameOver) {
-                              Navigator.push(
-                                  context, ScaleRoute(page: Bedroom()));
-                            }
-                          },
-                          child: Container(
-                            constraints: BoxConstraints.tightForFinite(width: 300),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                    constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
-                                    padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                                    child: Image(image: AssetImage('assets/sleep.png')))
-                                ,
-                                Text('Sleep'),
-                              ],
-                            ),
+                                  if (!isGameOver) {
+                                    Navigator.push(
+                                        context, ScaleRoute(page: Bedroom()));
+                                  }
+                                },
+                                child: Container(
+                                  constraints: BoxConstraints.tightForFinite(width: 300),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                          constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
+                                          padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
+                                          child: Image(image: AssetImage('assets/sleep.png')))
+                                      ,
+                                      Text('Sleep'),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -416,7 +441,16 @@ class _StartState extends State<Start> {
                 ],
               );
             }else{
-              return Text('Please register a new account');
+              return AlertDialog(
+                  content: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      CircularProgressIndicator(),
+                      SizedBox(height: 10),
+                      Text('Loading'),
+                    ],
+                  ));
             }
           }
         ),

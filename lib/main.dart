@@ -24,7 +24,7 @@ class Main extends StatelessWidget {
             body1: TextStyle(fontSize: 35),
             button: TextStyle(fontSize: 30),
           ),
-          buttonTheme: ButtonThemeData(buttonColor: Color(0xFFF25CA2)),
+          buttonTheme: ButtonThemeData(buttonColor: Color(0xB3F25CA2)),
         ),
         //home: Wrapper(),
         routes: {

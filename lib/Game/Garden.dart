@@ -105,8 +105,8 @@ class _GardenState extends State<Garden> {
                         Container(
                             constraints: BoxConstraints(maxHeight: 60, minHeight: 60),
                             padding: EdgeInsets.fromLTRB(0, 5, 10, 5),
-                            child: Image(image: AssetImage('assets/plantseeds.png')))
-                        ,
+                            child: Image(image: AssetImage('assets/plantseeds.png'))
+                        ),
                         Text('Plant some seeds'),
                       ],
                     ),
